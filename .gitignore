@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+OpenSecAI-Roadmap.md
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Environment / secrets (never commit these)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+coverage/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Docker
+docker-data/
+postgres-data/
+redis-data/
+
+# Test coverage
+coverage/
+
+# Terraform (later phases)
+*.tfstate
+*.tfstate.*
+.terraform/
