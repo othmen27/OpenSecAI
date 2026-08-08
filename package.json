@@ -1,0 +1,18 @@
+{
+  "name": "opensecai",
+  "version": "0.1.0-skeleton",
+  "private": true,
+  "description": "AI-powered Application Security Workspace — microservice architecture",
+  "scripts": {
+    "dev": "pnpm --parallel --filter frontend --filter gateway dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
