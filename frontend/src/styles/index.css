@@ -1,38 +1,31 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 
-html,
-body,
-#root {
-  height: 100%;
-}
+  body {
+    @apply bg-neutral-50 font-sans text-neutral-700 antialiased dark:bg-neutral-950 dark:text-neutral-300;
+  }
 
-body {
-  font-family: "Cascadia Code", "Consolas", "JetBrains Mono", "Courier New", monospace;
-  background: #0a0a0a;
-  color: #d4d4d4;
-}
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
 
-/* Subtle scrollbar to match the dark theme */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-solid border-transparent bg-clip-padding bg-neutral-200 dark:bg-neutral-700;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #262626;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #404040;
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-300 dark:bg-neutral-600;
+  }
 }

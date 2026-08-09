@@ -1,17 +1,36 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Chat from "./pages/Chat";
+import { Navigate, Route, Routes } from "react-router-dom";
+import WorkspaceLayout from "./components/workspace/WorkspaceLayout";
+import SelectProjectPage from "./pages/SelectProjectPage";
+import ChatPage from "./pages/ChatPage";
+import HttpHistoryPage from "./pages/HttpHistoryPage";
+import RequestInspectorPage from "./pages/RequestInspectorPage";
+import JsAnalysisPage from "./pages/JsAnalysisPage";
+import NotesPage from "./pages/NotesPage";
+import ReconPage from "./pages/ReconPage";
+import BinaryAnalysisPage from "./pages/BinaryAnalysisPage";
+import ReportsPage from "./pages/ReportsPage";
 
 export default function App() {
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/chat" element={<Chat />} />
+      <Route path="/" element={<WorkspaceLayout />}>
+        <Route index element={<SelectProjectPage />} />
       </Route>
+
+      <Route path="/projects/:projectId" element={<WorkspaceLayout />}>
+        {/* Selecting a project lands on its Chat view. */}
+        <Route index element={<Navigate to="chat" replace />} />
+        <Route path="chat" element={<ChatPage />} />
+        <Route path="http-history" element={<HttpHistoryPage />} />
+        <Route path="http-history/:requestId" element={<RequestInspectorPage />} />
+        <Route path="js-analysis" element={<JsAnalysisPage />} />
+        <Route path="notes" element={<NotesPage />} />
+        <Route path="recon" element={<ReconPage />} />
+        <Route path="binary" element={<BinaryAnalysisPage />} />
+        <Route path="reports" element={<ReportsPage />} />
+      </Route>
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
