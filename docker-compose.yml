@@ -31,8 +31,7 @@ services:
 
   gateway:
     build:
-      context: ./gateway
-      dockerfile: Dockerfile
+      dockerfile: gateway/Dockerfile
     container_name: opensecai-gateway
     environment:
       NODE_ENV: production
@@ -51,8 +50,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: frontend/Dockerfile
     container_name: opensecai-frontend
     ports:
       - "5173:80"
