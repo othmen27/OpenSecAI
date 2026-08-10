@@ -1,17 +1,11 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
+import { pathToFileURL } from "node:url";
 import { config } from "./config.js";
 import { closeConnections, redis } from "./db.js";
 import { healthRoutes } from "./routes/health.js";
 
-/**
- * OpenSecAI API Gateway
- *
- * Phase 1: skeleton — health check + dependency wiring.
- * Later phases add: auth (JWT), rate limiting, routing to
- * security/ai/file/recon services.
- */
 async function buildServer() {
   const app = Fastify({
     logger: {
@@ -19,20 +13,17 @@ async function buildServer() {
     },
   });
 
-  // CORS — allow the Vite dev server origin
   await app.register(cors, {
     origin: config.CORS_ORIGIN,
     credentials: true,
   });
-
-  // Rate limiting — Redis-backed so limits survive restarts
+// Rate Limiter
   await app.register(rateLimit, {
     max: 100,
     timeWindow: "1 minute",
     redis,
   });
 
-  // Routes
   await app.register(healthRoutes);
 
   return app;
@@ -41,7 +32,6 @@ async function buildServer() {
 async function start() {
   const app = await buildServer();
 
-  // Graceful shutdown
   const shutdown = async (signal: string) => {
     app.log.info(`${signal} received, shutting down...`);
     await app.close();
@@ -61,8 +51,7 @@ async function start() {
   }
 }
 
-// Only start when run directly (not when imported for tests)
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   void start();
 }
 

@@ -18,7 +18,6 @@ export default function App() {
       </Route>
 
       <Route path="/projects/:projectId" element={<WorkspaceLayout />}>
-        {/* Selecting a project lands on its Chat view. */}
         <Route index element={<Navigate to="chat" replace />} />
         <Route path="chat" element={<ChatPage />} />
         <Route path="http-history" element={<HttpHistoryPage />} />

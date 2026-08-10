@@ -14,11 +14,6 @@ export const redis = new Redis(config.REDIS_URL, {
   lazyConnect: true,
 });
 
-/**
- * Health check helper — verifies both Postgres and Redis are reachable.
- * Returns per-dependency status so the /health endpoint can report
- * exactly which dependency is down.
- */
 export async function checkDependencies(): Promise<{
   postgres: boolean;
   redis: boolean;
@@ -34,7 +29,8 @@ async function checkPostgres(): Promise<boolean> {
   try {
     await pgPool.query("SELECT 1");
     return true;
-  } catch {
+  } catch (err) {
+
     return false;
   }
 }
@@ -48,7 +44,6 @@ async function checkRedis(): Promise<boolean> {
   }
 }
 
-/** Graceful shutdown — close both connections on SIGTERM/SIGINT. */
 export async function closeConnections(): Promise<void> {
   await Promise.allSettled([pgPool.end(), redis.quit()]);
 }
