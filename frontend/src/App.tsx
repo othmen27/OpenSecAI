@@ -9,14 +9,14 @@ import NotesPage from "./pages/NotesPage";
 import ReconPage from "./pages/ReconPage";
 import BinaryAnalysisPage from "./pages/BinaryAnalysisPage";
 import ReportsPage from "./pages/ReportsPage";
-
+import LoginPage from "./pages/LoginPage";
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<WorkspaceLayout />}>
         <Route index element={<SelectProjectPage />} />
       </Route>
-
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/projects/:projectId" element={<WorkspaceLayout />}>
         <Route index element={<Navigate to="chat" replace />} />
         <Route path="chat" element={<ChatPage />} />

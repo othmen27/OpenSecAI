@@ -5,9 +5,10 @@ import type { Project } from "../../types";
 interface SidebarProps {
   projects: Project[];
   activeProjectId: string | null;
+  loggedInUserId?: string | null;
 }
 
-export default function Sidebar({ projects, activeProjectId }: SidebarProps) {
+export default function Sidebar({ projects, activeProjectId, loggedInUserId }: SidebarProps) {
   return (
     <nav className="flex h-full flex-col overflow-hidden border-r border-neutral-200 bg-neutral-100/60 px-3 py-4 dark:border-neutral-800 dark:bg-neutral-900/40">
       <p className="px-2 pb-5 text-sm font-medium text-neutral-900 dark:text-neutral-100">
@@ -29,6 +30,25 @@ export default function Sidebar({ projects, activeProjectId }: SidebarProps) {
           </div>
         </div>
       ) : null}
+      {loggedInUserId ? (
+        <div className="mt-auto flex items-center justify-center">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
+            Logged in as: {loggedInUserId}
+          </p>
+        </div>
+      ) : (
+        <div className="mt-auto flex items-center justify-center">
+           <button
+      type="button"
+      className="w-full rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200"
+      onClick={() => {
+        
+      }}
+    >
+      Login
+    </button>
+    </div>
+      )}
     </nav>
   );
 }
