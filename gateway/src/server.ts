@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { config } from "./config.js";
 import { closeConnections, redis } from "./db.js";
 import { healthRoutes } from "./routes/health.js";
-
+import { userRoutes } from "./routes/userRoutes.js";
 async function buildServer() {
   const app = Fastify({
     logger: {
@@ -25,7 +25,7 @@ async function buildServer() {
   });
 
   await app.register(healthRoutes);
-
+  await app.register(userRoutes);
   return app;
 }
 
