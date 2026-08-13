@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
+import cookie from "@fastify/cookie";
 import rateLimit from "@fastify/rate-limit";
 import { pathToFileURL } from "node:url";
 import { config } from "./config.js";
@@ -23,7 +24,10 @@ async function buildServer() {
     timeWindow: "1 minute",
     redis,
   });
-
+  await app.register(cookie, {
+    secret: config.JWTSECRET,
+    parseOptions: {},
+  });
   await app.register(healthRoutes);
   await app.register(userRoutes);
   return app;
