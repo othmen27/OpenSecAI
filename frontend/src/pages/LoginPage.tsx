@@ -1,12 +1,25 @@
 import { Mail, Lock } from "lucide-react";
 import DarkCard from "../components/workspace/DarkCard";
-import { useState } from "react";
+import { useNavigate} from 'react-router-dom';
+import {useAuth} from "../providers/AuthProvider";
+import {useForm} from 'react-hook-form'
+type LoginForm = {
+  username: string;
+  password: string;
+}
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ email, password });
+  // @ts-expect-error
+  const {register,handleSubmit,formState:{errors},reset,} = useForm<LoginForm>({defaultValues: {username: "",password:""},mode:"onTouched"}) 
+  const navigate = useNavigate();
+  const {login} = useAuth()
+  const onSubmit = async (data: LoginForm) => {
+    try{
+      await login(data);
+      reset();
+      navigate("/", { replace: true });
+    }catch(error){
+      console.error(error);
+    }
   };
 
   
@@ -19,14 +32,13 @@ export default function LoginPage() {
         <h1 className="text-center text-white text-lg font-medium">
           Please sign in to your account
         </h1>
-        <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-3">
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="email address"
+              type="text"
+              {...register("username", { required: "Username is required" })}
+              placeholder="Username"
               className="w-full rounded-lg bg-[#1a1a1d] border border-white/10 py-2.5 pl-10 pr-3 text-sm text-gray-200 placeholder:text-gray-500 outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition"
             />
           </div>
@@ -35,8 +47,7 @@ export default function LoginPage() {
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              {...register("password", { required: "Password is required" })}
               placeholder="Password"
               className="w-full rounded-lg bg-[#1a1a1d] border border-white/10 py-2.5 pl-10 pr-3 text-sm text-gray-200 placeholder:text-gray-500 outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/30 transition"
             />
@@ -50,6 +61,6 @@ export default function LoginPage() {
           </button>
         </form>
       </DarkCard>
-    </div>
+        </div>
   );
 }

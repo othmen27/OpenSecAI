@@ -9,6 +9,7 @@ const envSchema = z.object({
   DATABASE_URL: z.string().default("postgres://opensecai:opensecai@localhost:5432/opensecai"),
   REDIS_URL: z.string().default("redis://localhost:6379"),
   CORS_ORIGIN: z.string().default("http://localhost:5173"),
+  SALTROUNDS: z.coerce.number().default(12)
 });
 
 const parsed = envSchema.safeParse(process.env);
