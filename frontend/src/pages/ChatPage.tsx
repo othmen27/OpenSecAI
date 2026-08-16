@@ -1,7 +1,9 @@
+import { useRef } from "react";
 import { IconUser } from "@tabler/icons-react";
 import PageHeader from "../components/workspace/PageHeader";
 import AIAnnotation from "../components/workspace/AIAnnotation";
-import ChatInput from "../components/workspace/ChatInput";
+import ChatInput, { type ChatInputHandle } from "../components/workspace/ChatInput";
+import ChatContextRail from "../components/workspace/ChatContextRail";
 import { useWorkspaceContext } from "../components/workspace/WorkspaceContext";
 
 interface ChatTurn {
@@ -50,24 +52,39 @@ function UserMessage({ content }: UserMessageProps) {
 
 export default function ChatPage() {
   const { project } = useWorkspaceContext();
+  const chatInputRef = useRef<ChatInputHandle>(null);
+
+  /** Suggested-prompt click: fill the chat input and focus it — never auto-send. */
+  const applyPrompt = (prompt: string) => {
+    chatInputRef.current?.setValue(prompt);
+    chatInputRef.current?.focus();
+  };
 
   return (
-    <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col">
-      <PageHeader title={project?.name ?? "Project"} context="Chat" />
+    <div className="flex h-full min-h-0 min-w-0 flex-1">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+        <PageHeader title={project?.name ?? "Project"} context="Chat" />
 
-      <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-6 py-5">
-        {mockTurns.map((turn) =>
-          turn.author === "user" ? (
-            <UserMessage key={turn.id} content={turn.content} />
-          ) : (
-            <AIAnnotation key={turn.id} content={turn.content} />
-          ),
-        )}
+        <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-6 py-5">
+          {mockTurns.map((turn) =>
+            turn.author === "user" ? (
+              <UserMessage key={turn.id} content={turn.content} />
+            ) : (
+              <AIAnnotation key={turn.id} content={turn.content} />
+            ),
+          )}
+        </div>
+
+        <div className="shrink-0 px-6 pb-5">
+          <ChatInput
+            ref={chatInputRef}
+            placeholder="Ask about this project"
+            onSend={() => undefined}
+          />
+        </div>
       </div>
 
-      <div className="shrink-0 px-6 pb-5">
-        <ChatInput placeholder="Ask about this project" onSend={() => undefined} />
-      </div>
+      <ChatContextRail onApplyPrompt={applyPrompt} />
     </div>
   );
 }

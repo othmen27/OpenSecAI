@@ -8,18 +8,52 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(cuid())
   email       String   @unique
   username    String   @unique
   password    String
   displayName String?
+  sessions    Session[]
+  projects    Project[]
+  apiKeys      ApiKey[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model ApiKey {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  key       String 
+  label     String?
+  provider  LlmProvider
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+enum LlmProvider {
+  GROQ
+  GEMINI
+  OPENROUTER
+  CEREBRAS
+  MISTRAL
+  GITHUB_MODELS
+  CLOUDFLARE
+  OLLAMA
+}
 model Project {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(cuid())
   name        String
-  description String?
+  files       String[]
+  notes       String[]
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 

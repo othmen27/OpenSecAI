@@ -5,8 +5,8 @@ export async function seed(){
     const admin = await prisma.user.findFirst({
         where: {
             OR: [
-                { email: "admin"},
-                { username: "admin" }
+                { email: config.ADMIN_EMAIL },
+                { username: config.ADMIN_EMAIL }
             ]
         }
     });
@@ -14,11 +14,11 @@ export async function seed(){
         console.log("Admin user already exists");
         return;
     }
-    const hashedPassword = await bcrypt.hash("admin", config.SALTROUNDS);
+    const hashedPassword = await bcrypt.hash(config.ADMIN_PASSWORD, config.SALTROUNDS);
     await prisma.user.create({
         data: {
-            email: "admin",
-            username: "admin",
+            email: config.ADMIN_EMAIL,
+            username: config.ADMIN_EMAIL,
             password: hashedPassword,
             displayName: "Admin User",
         }

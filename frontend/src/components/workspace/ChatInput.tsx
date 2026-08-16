@@ -1,12 +1,33 @@
-import { useState, type FormEvent } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+  type FormEvent,
+} from "react";
 
 interface ChatInputProps {
   placeholder?: string;
   onSend: (message: string) => void;
 }
 
-export default function ChatInput({ placeholder = "Ask about this request", onSend }: ChatInputProps) {
+/** Imperative handle so callers (e.g. the context rail) can fill + focus the input. */
+export interface ChatInputHandle {
+  setValue: (value: string) => void;
+  focus: () => void;
+}
+
+const ChatInput = forwardRef<ChatInputHandle, ChatInputProps>(function ChatInput(
+  { placeholder = "Ask about this request", onSend },
+  ref,
+) {
   const [value, setValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    setValue,
+    focus: () => inputRef.current?.focus(),
+  }));
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,6 +43,7 @@ export default function ChatInput({ placeholder = "Ask about this request", onSe
       className="flex items-center gap-2 rounded-lg border border-neutral-300 bg-white py-1 pl-3.5 pr-1.5 transition-colors focus-within:border-accent-400 dark:border-neutral-700 dark:bg-neutral-900 dark:focus-within:border-accent-400"
     >
       <input
+        ref={inputRef}
         type="text"
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -50,4 +72,6 @@ export default function ChatInput({ placeholder = "Ask about this request", onSe
       </button>
     </form>
   );
-}
+});
+
+export default ChatInput;
