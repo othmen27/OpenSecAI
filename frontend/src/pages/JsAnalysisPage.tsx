@@ -1,5 +1,6 @@
 import PageHeader from "../components/workspace/PageHeader";
 import AIAnnotation from "../components/workspace/AIAnnotation";
+import JsAnalysisRail from "./JsAnalysisRail";
 import { useWorkspaceContext } from "../components/workspace/WorkspaceContext";
 
 interface JsFile {
@@ -46,41 +47,44 @@ export default function JsAnalysisPage() {
   const { project } = useWorkspaceContext();
 
   return (
-    <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col">
-      <PageHeader title={project?.name ?? "Project"} context="JS analysis" />
+    <div className="flex h-full min-h-0 min-w-0 flex-1">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+        <PageHeader title={project?.name ?? "Project"} context="JS analysis" />
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-        <ul className="space-y-0.5">
-          {mockJsFiles.map((file) => (
-            <li key={file.id}>
-              <div className="flex items-center gap-4 rounded-md px-3 py-2 text-[13px]">
-                <span className="min-w-0 flex-1 truncate font-mono text-neutral-700 dark:text-neutral-300">
-                  {file.filename}
-                </span>
-                <span className="shrink-0 text-[12px] text-neutral-400 dark:text-neutral-500">
-                  {file.size} · {file.endpointCount} endpoints found
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <section className="mt-8">
-          <p className="px-3 pb-3 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400 dark:text-neutral-500">
-            Findings — {expandedFile.filename}
-          </p>
-          <div className="space-y-5 px-3">
-            {mockFindings.map((finding) => (
-              <div key={finding.id} className="space-y-1.5">
-                <p className="font-mono text-[13px] leading-relaxed text-neutral-700 dark:text-neutral-300">
-                  {finding.detail}
-                </p>
-                <AIAnnotation content={finding.note} />
-              </div>
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
+          <ul className="space-y-0.5">
+            {mockJsFiles.map((file) => (
+              <li key={file.id}>
+                <div className="flex items-center gap-4 rounded-md px-3 py-2 text-[13px]">
+                  <span className="min-w-0 flex-1 truncate font-mono text-neutral-700 dark:text-neutral-300">
+                    {file.filename}
+                  </span>
+                  <span className="shrink-0 text-[12px] text-neutral-400 dark:text-neutral-500">
+                    {file.size} · {file.endpointCount} endpoints found
+                  </span>
+                </div>
+              </li>
             ))}
-          </div>
-        </section>
+          </ul>
+
+          <section className="mt-8">
+            <p className="px-3 pb-3 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400 dark:text-neutral-500">
+              Findings — {expandedFile.filename}
+            </p>
+            <div className="space-y-5 px-3">
+              {mockFindings.map((finding) => (
+                <div key={finding.id} className="space-y-1.5">
+                  <p className="font-mono text-[13px] leading-relaxed text-neutral-700 dark:text-neutral-300">
+                    {finding.detail}
+                  </p>
+                  <AIAnnotation content={finding.note} />
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
+      <JsAnalysisRail />
     </div>
   );
 }

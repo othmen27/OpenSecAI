@@ -3,7 +3,7 @@ import { IconUser } from "@tabler/icons-react";
 import PageHeader from "../components/workspace/PageHeader";
 import AIAnnotation from "../components/workspace/AIAnnotation";
 import ChatInput, { type ChatInputHandle } from "../components/workspace/ChatInput";
-import ChatContextRail from "../components/workspace/ChatContextRail";
+import ChatContextRail from "./ChatContextRail";
 import { useWorkspaceContext } from "../components/workspace/WorkspaceContext";
 
 interface ChatTurn {
@@ -12,7 +12,6 @@ interface ChatTurn {
   content: string;
 }
 
-/** Mock conversation — same annotation style as the request inspector. */
 const mockTurns: ChatTurn[] = [
   {
     id: "turn-1",
@@ -36,7 +35,6 @@ interface UserMessageProps {
   content: string;
 }
 
-/** User turn — neutral circular avatar, otherwise the annotation look. */
 function UserMessage({ content }: UserMessageProps) {
   return (
     <section className="flex items-start gap-3">
@@ -54,7 +52,6 @@ export default function ChatPage() {
   const { project } = useWorkspaceContext();
   const chatInputRef = useRef<ChatInputHandle>(null);
 
-  /** Suggested-prompt click: fill the chat input and focus it — never auto-send. */
   const applyPrompt = (prompt: string) => {
     chatInputRef.current?.setValue(prompt);
     chatInputRef.current?.focus();
