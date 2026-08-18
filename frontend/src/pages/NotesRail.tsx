@@ -8,13 +8,6 @@ export interface LinkedItem {
   label: string;
 }
 
-/** Mock links mirroring the content of the open note. */
-const mockLinkedItems: LinkedItem[] = [
-  { id: "link-1", kind: "request", label: "POST /v1/auth/login" },
-  { id: "link-2", kind: "finding", label: "Internal report endpoint exposed" },
-  { id: "link-3", kind: "report", label: "acme.com auth flow review" },
-];
-
 interface NotesRailProps {
   linkedItems?: LinkedItem[];
 }
@@ -23,7 +16,7 @@ interface NotesRailProps {
  * Right-hand rail for the Notes view: requests, findings and reports linked to
  * the currently open note.
  */
-export default function NotesRail({ linkedItems = mockLinkedItems }: NotesRailProps) {
+export default function NotesRail({ linkedItems = [] }: NotesRailProps) {
   return (
     <RightRail>
       <RailSection label="Linked to this note">

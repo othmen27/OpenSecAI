@@ -5,8 +5,6 @@ import (
 	"net/http"
 )
 
-// OpenSecAI AI Service — Phase 1 skeleton.
-// Multi-provider LLM routing + tool calling lands in Phase 3+.
 func main() {
 	http.HandleFunc("/health", func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Set("Content-Type", "application/json")

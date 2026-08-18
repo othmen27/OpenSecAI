@@ -7,6 +7,7 @@ import { config } from "./config.js";
 import { closeConnections, redis } from "./db.js";
 import { healthRoutes } from "./routes/health.js";
 import { userRoutes } from "./routes/userRoutes.js";
+import { projectRoutes } from "./routes/projectRoutes.js";
 import { seed } from "./lib/seed.js";
 async function buildServer() {
   const app = Fastify({
@@ -31,6 +32,7 @@ async function buildServer() {
   });
   await app.register(healthRoutes);
   await app.register(userRoutes);
+  await app.register(projectRoutes);
   await seed();
   return app;
 }

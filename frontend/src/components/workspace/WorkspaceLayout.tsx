@@ -1,7 +1,8 @@
 import { Navigate, Outlet, useMatch, useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import SignalsPanel from "./SignalsPanel";
-import { mockProjects, mockSignals } from "../../data/mock";
+import { mockSignals } from "../../data/mock";
+import { useProjects } from "../../providers/ProjectsProvider";
 import type { WorkspaceOutletContext } from "./WorkspaceContext";
 
 /**
@@ -14,17 +15,19 @@ export default function WorkspaceLayout() {
   const routeParams = useParams();
   const projectId = routeParams.projectId ?? null;
 
+  const { projects, loading } = useProjects();
+
   const activeProject =
     projectId === null
       ? null
-      : mockProjects.find((project) => project.id === projectId) ?? null;
+      : projects.find((project) => project.id === projectId) ?? null;
 
   // Signals are reserved for the HTTP history detail / request inspector view.
   const inspectorMatch = useMatch("/projects/:projectId/http-history/:requestId");
   const showSignals = inspectorMatch !== null;
 
-  // Unknown project id — fall back to the project select screen.
-  if (projectId !== null && activeProject === null) {
+  // Unknown project id — fall back to the project select screen (after load).
+  if (projectId !== null && !loading && activeProject === null) {
     return <Navigate to="/" replace />;
   }
 
@@ -38,7 +41,7 @@ export default function WorkspaceLayout() {
           : "grid-cols-[220px_minmax(0,1fr)]"
       }`}
     >
-      <Sidebar projects={mockProjects} activeProjectId={activeProject?.id ?? null} />
+      <Sidebar projects={projects} activeProjectId={activeProject?.id ?? null} loading={loading} />
       <main className="flex h-full min-w-0 flex-col overflow-hidden">
         <Outlet context={outletContext} />
       </main>

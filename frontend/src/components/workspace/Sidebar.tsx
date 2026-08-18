@@ -7,9 +7,10 @@ import { useAuth } from "../../providers/AuthProvider";
 interface SidebarProps {
   projects: Project[];
   activeProjectId: string | null;
+  loading?: boolean;
   loggedInUserId?: string | null;
 }
-export default function Sidebar({ projects, activeProjectId }: SidebarProps) {
+export default function Sidebar({ projects, activeProjectId, loading }: SidebarProps) {
   const navigate = useNavigate();
   const { user, isAuth, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,7 +53,7 @@ export default function Sidebar({ projects, activeProjectId }: SidebarProps) {
       <p className="shrink-0 px-2 pb-2 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400 dark:text-neutral-500">
         Projects
       </p>
-      <ProjectList projects={projects} activeProjectId={activeProjectId} />
+      <ProjectList projects={projects} activeProjectId={activeProjectId} loading={loading} />
 
       {activeProjectId ? (
         <div className="flex min-h-0 flex-1 flex-col">

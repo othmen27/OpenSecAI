@@ -1,10 +1,4 @@
-import type { Project, Signal } from "../types";
-
-export const mockProjects: Project[] = [
-  { id: "acme", name: "acme.com" },
-  { id: "globex", name: "globex-bank" },
-  { id: "initech", name: "initech-api" },
-];
+import type { Signal } from "../types";
 
 export const mockContext = "auth flow";
 
