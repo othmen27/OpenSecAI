@@ -47,11 +47,48 @@ enum LlmProvider {
   CLOUDFLARE
   OLLAMA
 }
+model Note{
+  id         String   @id @default(cuid())
+  content     String
+  filePath    String?
+  attachments NoteAttachment[]
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+model NoteAttachment{
+  id           String   @id @default(cuid())
+  noteId       String
+  note         Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  filePath     String
+  originalName String
+  mimeType     String
+  createdAt    DateTime @default(now())
+}
+model Conversation{
+  id         String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  messages    Message[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+model Message{
+  id         String   @id @default(cuid())
+  conversationId   String
+  conversation     Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role       String
+  content    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
 model Project {
   id          String   @id @default(cuid())
   name        String
   files       String[]
-  notes       String[]
+  notes       Note[]
+  conversations Conversation[]
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())

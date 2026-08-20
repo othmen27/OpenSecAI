@@ -4,13 +4,11 @@ import { prisma } from "../lib/prisma.js";
 interface CreateProjectRequestBody {
     name: string;
     files?: string[];
-    notes?: string[];
 }
 
 interface UpdateProjectRequestBody {
     name?: string;
     files?: string[];
-    notes?: string[];
 }
 
 export async function createProject(
@@ -18,7 +16,7 @@ export async function createProject(
     reply: FastifyReply
 ) {
     try {
-        const { name, files, notes } = request.body;
+        const { name, files } = request.body;
         if (!name || typeof name !== "string") {
             return reply.status(400).send({ error: "Project name is required" });
         }
@@ -26,7 +24,6 @@ export async function createProject(
             data: {
                 name,
                 files: files ?? [],
-                notes: notes ?? [],
                 userId: request.userId,
             },
         });
@@ -75,7 +72,7 @@ export async function updateProject(
 ) {
     try {
         const { id } = request.params;
-        const { name, files, notes } = request.body;
+        const { name, files } = request.body;
         const existing = await prisma.project.findFirst({
             where: { id, userId: request.userId },
         });
@@ -87,7 +84,6 @@ export async function updateProject(
             data: {
                 ...(name !== undefined ? { name } : {}),
                 ...(files !== undefined ? { files } : {}),
-                ...(notes !== undefined ? { notes } : {}),
             },
         });
         return reply.status(200).send({ project });

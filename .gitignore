@@ -49,6 +49,9 @@ docker-data/
 postgres-data/
 redis-data/
 
+# Uploaded note attachments
+gateway/uploads/
+
 # Test coverage
 coverage/
 

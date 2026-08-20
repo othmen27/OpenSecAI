@@ -11,7 +11,8 @@ const envSchema = z.object({
   CORS_ORIGIN: z.string().default("http://localhost:5173"),
   ADMIN_EMAIL: z.string().default("admin"),
   ADMIN_PASSWORD: z.string().default("admin"),
-  SALTROUNDS: z.coerce.number().default(12)
+  SALTROUNDS: z.coerce.number().default(12),
+  AI_SERVICE_URL: z.string().default("http://localhost:8081")
 });
 
 const parsed = envSchema.safeParse(process.env);

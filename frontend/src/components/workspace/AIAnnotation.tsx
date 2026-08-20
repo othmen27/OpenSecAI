@@ -1,3 +1,5 @@
+import MarkdownContent from "./MarkdownContent";
+
 interface AIAnnotationProps {
   content: string;
 }
@@ -10,9 +12,7 @@ export default function AIAnnotation({ content }: AIAnnotationProps) {
           <path d="M12 3c.5 3.8 2.2 5.5 6 6-3.8.5-5.5 2.2-6 6-.5-3.8-2.2-5.5-6-6 3.8-.5 5.5-2.2 6-6Z" />
         </svg>
       </span>
-      <p className="max-w-[65ch] text-[13px] leading-relaxed text-neutral-500 dark:text-neutral-400">
-        {content}
-      </p>
+      <MarkdownContent content={content} className="max-w-[65ch]" />
     </section>
   );
 }

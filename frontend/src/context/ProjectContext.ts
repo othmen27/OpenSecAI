@@ -7,7 +7,7 @@ interface ProjectContextType {
     refresh: () => Promise<void>;
     updateProject: (
         id: string,
-        data: Partial<Pick<Project, "name" | "files" | "notes">>
+        data: Partial<Pick<Project, "name" | "files">>
     ) => Promise<Project>;
 }
 

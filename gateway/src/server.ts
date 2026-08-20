@@ -2,12 +2,15 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import cookie from "@fastify/cookie";
 import rateLimit from "@fastify/rate-limit";
+import multipart from "@fastify/multipart";
 import { pathToFileURL } from "node:url";
 import { config } from "./config.js";
 import { closeConnections, redis } from "./db.js";
 import { healthRoutes } from "./routes/health.js";
 import { userRoutes } from "./routes/userRoutes.js";
 import { projectRoutes } from "./routes/projectRoutes.js";
+import { noteRoutes } from "./routes/noteRoutes.js";
+import { conversationRoutes } from "./routes/conversationRoutes.js";
 import { seed } from "./lib/seed.js";
 async function buildServer() {
   const app = Fastify({
@@ -30,9 +33,17 @@ async function buildServer() {
     secret: config.JWTSECRET,
     parseOptions: {},
   });
+  await app.register(multipart, {
+    limits: {
+      fileSize: 5 * 1024 * 1024, // 5 MB per note attachment
+      files: 1,
+    },
+  });
   await app.register(healthRoutes);
   await app.register(userRoutes);
   await app.register(projectRoutes);
+  await app.register(noteRoutes);
+  await app.register(conversationRoutes);
   await seed();
   return app;
 }

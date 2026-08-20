@@ -1,0 +1,467 @@
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145279125,"pid":33252,"hostname":"DevSenpai","reqId":"req-4","res":{"statusCode":500},"responseTime":44.72639999999956,"msg":"request completed"}
+{"level":30,"time":1787145279127,"pid":33252,"hostname":"DevSenpai","reqId":"req-5","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/conversations","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.conversation.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145279207,"pid":33252,"hostname":"DevSenpai","reqId":"req-5","res":{"statusCode":500},"responseTime":79.21370000000024,"msg":"request completed"}
+{"level":30,"time":1787145279434,"pid":33252,"hostname":"DevSenpai","reqId":"req-6","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/conversations","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.conversation.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145279480,"pid":33252,"hostname":"DevSenpai","reqId":"req-6","res":{"statusCode":500},"responseTime":45.017900000002555,"msg":"request completed"}
+{"level":30,"time":1787145279515,"pid":33252,"hostname":"DevSenpai","reqId":"req-7","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/conversations","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.conversation.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145279555,"pid":33252,"hostname":"DevSenpai","reqId":"req-7","res":{"statusCode":500},"responseTime":40.245599999998376,"msg":"request completed"}
+{"level":30,"time":1787145280090,"pid":33252,"hostname":"DevSenpai","reqId":"req-8","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/conversations","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.conversation.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145280142,"pid":33252,"hostname":"DevSenpai","reqId":"req-8","res":{"statusCode":500},"responseTime":51.65699999999924,"msg":"request completed"}
+{"level":30,"time":1787145280162,"pid":33252,"hostname":"DevSenpai","reqId":"req-9","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/conversations","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.conversation.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:57
+
+  64 if (!project) {
+  65     return reply.status(404).send({ error: "Project not found" });
+  66 }
+→ 67 const conversations = await prisma.conversation.findMany(
+The table `public.Conversation` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getConversations (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\conversationController.ts:67:31) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Conversation',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145280208,"pid":33252,"hostname":"DevSenpai","reqId":"req-9","res":{"statusCode":500},"responseTime":46.49380000000019,"msg":"request completed"}
+{"level":30,"time":1787145283913,"pid":33252,"hostname":"DevSenpai","reqId":"req-a","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145283957,"pid":33252,"hostname":"DevSenpai","reqId":"req-a","res":{"statusCode":500},"responseTime":43.770800000002055,"msg":"request completed"}
+{"level":30,"time":1787145283958,"pid":33252,"hostname":"DevSenpai","reqId":"req-b","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":40087},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145283997,"pid":33252,"hostname":"DevSenpai","reqId":"req-b","res":{"statusCode":500},"responseTime":39.051000000003114,"msg":"request completed"}
+{"level":30,"time":1787145284266,"pid":33252,"hostname":"DevSenpai","reqId":"req-c","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":40087},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145284306,"pid":33252,"hostname":"DevSenpai","reqId":"req-c","res":{"statusCode":500},"responseTime":40.188099999999395,"msg":"request completed"}
+{"level":30,"time":1787145284309,"pid":33252,"hostname":"DevSenpai","reqId":"req-d","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":40087},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145284343,"pid":33252,"hostname":"DevSenpai","reqId":"req-d","res":{"statusCode":500},"responseTime":34.53029999999853,"msg":"request completed"}
+{"level":30,"time":1787145284917,"pid":33252,"hostname":"DevSenpai","reqId":"req-e","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":40087},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145284957,"pid":33252,"hostname":"DevSenpai","reqId":"req-e","res":{"statusCode":500},"responseTime":40.279999999998836,"msg":"request completed"}
+{"level":30,"time":1787145284957,"pid":33252,"hostname":"DevSenpai","reqId":"req-f","req":{"method":"GET","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.findMany()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:41
+
+  52 if (!project) {
+  53     return reply.status(404).send({ error: "Project not found" });
+  54 }
+→ 55 const notes = await prisma.note.findMany(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.getNotes (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:55:23) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22)
+        at async Object.singleLoader (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:112:26) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145284997,"pid":33252,"hostname":"DevSenpai","reqId":"req-f","res":{"statusCode":500},"responseTime":39.643299999999726,"msg":"request completed"}
+{"level":30,"time":1787145291518,"pid":33252,"hostname":"DevSenpai","reqId":"req-g","req":{"method":"OPTIONS","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":6889},"msg":"incoming request"}
+{"level":30,"time":1787145291520,"pid":33252,"hostname":"DevSenpai","reqId":"req-g","res":{"statusCode":204},"responseTime":0.9573999999993248,"msg":"request completed"}
+{"level":30,"time":1787145291526,"pid":33252,"hostname":"DevSenpai","reqId":"req-h","req":{"method":"POST","url":"/projects/cmsy633jj00010kq41oyxmndn/notes","host":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57525},"msg":"incoming request"}
+PrismaClientKnownRequestError: 
+Invalid `prisma.note.create()` invocation in
+C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:35:40
+
+  32 if (!project) {
+  33     return reply.status(404).send({ error: "Project not found" });
+  34 }
+→ 35 const note = await prisma.note.create(
+The table `public.Note` does not exist in the current database.
+    at Jr.handleRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:237:13)
+    at Jr.handleAndLogRequestError (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:183:12)
+    at Jr.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:152:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:1014:24)
+    at async Object.createNote (C:\Users\othmh\Projects\Project Flow\gateway\src\controllers\noteController.ts:35:22) {
+  code: 'P2021',
+  meta: {
+    modelName: 'Note',
+    driverAdapterError: DriverAdapterError: TableDoesNotExist
+        at PrismaPgAdapter.onError (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:639:11)
+        at PrismaPgAdapter.performIO (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:634:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at async PrismaPgAdapter.queryRaw (file:///C:/Users/othmh/Projects/Project%20Flow/node_modules/.pnpm/@prisma+adapter-pg@7.9.1/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:186:26)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:213:41)
+        at async e.interpretNode (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at async e.run (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at async e.execute (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at async Ut.request (C:\Users\othmh\Projects\Project Flow\node_modules\.pnpm\@prisma+client@7.9.1_prisma@7.9.1_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@_j4u74vyl6eqfuskjaefvocsrta\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:510:22) {
+      cause: [Object]
+    }
+  },
+  clientVersion: '7.9.1'
+}
+{"level":30,"time":1787145291575,"pid":33252,"hostname":"DevSenpai","reqId":"req-h","res":{"statusCode":500},"responseTime":48.76060000000143,"msg":"request completed"}

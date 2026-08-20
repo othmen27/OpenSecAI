@@ -25,7 +25,7 @@ export function ProjectsProvider({ children }: { children: ReactNode }) {
 
     const updateProject = async (
         id: string,
-        data: Partial<Pick<Project, "name" | "files" | "notes">>
+        data: Partial<Pick<Project, "name" | "files">>
     ): Promise<Project> => {
         const response = await http
             .put(`/projects/${id}`, { json: data })
